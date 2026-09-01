@@ -18,15 +18,14 @@ async def main():
         # Get proxy configuration
         proxy_config = actor_input.get('proxyConfiguration')
         if proxy_config:
-            proxy_url = await actor.create_proxy_configuration(
-                proxy_config
-            ).new_url()
+            proxy_cfg = await actor.create_proxy_configuration(proxy_config)
+            proxy_url = await proxy_cfg.new_url()
         else:
             # Default to RESIDENTIAL proxy
-            proxy_url = Actor.get_env('APIFY_PROXY_PASSWORD')
-            if proxy_url:
+            env = actor.get_env()
+            password = env.get('APIFY_PROXY_PASSWORD')
+            if password:
                 groups = 'RESIDENTIAL'
-                password = proxy_url
                 proxy_url = f"http://groups-{groups}:{password}@proxy.apify.com:8000"
             else:
                 proxy_url = None
