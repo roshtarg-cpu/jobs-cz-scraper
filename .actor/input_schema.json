@@ -1,0 +1,47 @@
+{
+  "title": "Jobs.cz Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchKeyword": {
+      "title": "Search Keyword",
+      "type": "string",
+      "description": "Job title or skill to search for (e.g., 'python developer')",
+      "editor": "textfield",
+      "prefill": "developer"
+    },
+    "location": {
+      "title": "Location",
+      "type": "string",
+      "description": "City or region (e.g., 'Praha', 'Brno')",
+      "editor": "textfield",
+      "prefill": "Praha"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string",
+      "description": "Job category/industry filter (optional)",
+      "editor": "textfield"
+    },
+    "maxResults": {
+      "title": "Max Results",
+      "type": "integer",
+      "description": "Maximum number of job listings to scrape",
+      "editor": "number",
+      "default": 50,
+      "prefill": 10,
+      "minimum": 1
+    },
+    "proxyConfiguration": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Proxy settings for scraping",
+      "prefill": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": ["RESIDENTIAL"]
+      },
+      "editor": "proxy"
+    }
+  },
+  "required": []
+}

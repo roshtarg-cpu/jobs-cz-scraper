@@ -1,0 +1,76 @@
+{
+  "actorSpecification": 1,
+  "name": "jobs-cz-scraper",
+  "title": "Jobs.cz Scraper — Czech Job Listings Data",
+  "description": "Extract job listings from Jobs.cz with titles, companies, locations, salaries. Perfect for recruitment intelligence and market research. Works with Claude, ChatGPT, and AI agents via Apify MCP.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "categories": ["JOBS", "LEAD_GENERATION", "AI"],
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "properties": {
+      "title": {
+        "type": "string",
+        "title": "Job Title",
+        "description": "Position title",
+        "template": "{{{title}}}"
+      },
+      "company": {
+        "type": "string",
+        "title": "Company",
+        "description": "Employer name",
+        "template": "{{{company}}}"
+      },
+      "location": {
+        "type": "string",
+        "title": "Location",
+        "description": "Job location",
+        "template": "{{{location}}}"
+      },
+      "salary": {
+        "type": "string",
+        "title": "Salary",
+        "description": "Salary range",
+        "template": "{{{salary}}}"
+      },
+      "jobType": {
+        "type": "string",
+        "title": "Job Type",
+        "description": "Employment type",
+        "template": "{{{jobType}}}"
+      },
+      "url": {
+        "type": "string",
+        "title": "URL",
+        "description": "Job posting URL",
+        "template": "{{{url}}}"
+      },
+      "description": {
+        "type": "string",
+        "title": "Description",
+        "description": "Job description",
+        "template": "{{{description}}}"
+      },
+      "postedDate": {
+        "type": "string",
+        "title": "Posted Date",
+        "description": "When listed",
+        "template": "{{{postedDate}}}"
+      },
+      "category": {
+        "type": "string",
+        "title": "Category",
+        "description": "Job category",
+        "template": "{{{category}}}"
+      },
+      "scrapedAt": {
+        "type": "string",
+        "title": "Scraped At",
+        "description": "Scrape timestamp",
+        "template": "{{{scrapedAt}}}"
+      }
+    }
+  }
+}
